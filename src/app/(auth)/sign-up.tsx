@@ -1,12 +1,18 @@
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Alert } from 'react-native';
 import React, { useState } from 'react';
 import Button from '../../components/Button';
 import Colors from '../../constants/Colors';
 import { Link, Stack } from 'expo-router';
 
+
 const SignUpScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  async function signUpWithEmail() {
+   
+  }
 
   return (
     <View style={styles.container}>
@@ -16,7 +22,7 @@ const SignUpScreen = () => {
       <TextInput
         value={email}
         onChangeText={setEmail}
-        placeholder="email"
+        placeholder="jon@gmail.com"
         style={styles.input}
       />
 
@@ -24,12 +30,16 @@ const SignUpScreen = () => {
       <TextInput
         value={password}
         onChangeText={setPassword}
-        placeholder="password"
+        placeholder=""
         style={styles.input}
         secureTextEntry
       />
 
-      <Button text="Create account" />
+      <Button
+        onPress={signUpWithEmail}
+        disabled={loading}
+        text={loading ? 'Creating account...' : 'Create account'}
+      />
       <Link href="/sign-in" style={styles.textButton}>
         Sign in
       </Link>

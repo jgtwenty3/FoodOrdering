@@ -50,7 +50,7 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <CartProvider>
-      <Stack>
+      <Stack >
             
                   <Stack.Screen
                     name="(admin)"
